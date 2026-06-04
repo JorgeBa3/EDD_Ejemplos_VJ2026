@@ -4,6 +4,7 @@
 struct NodoCola
 {
     int dato;
+    std::string finca;
     NodoCola* siguiente;
 };
 
@@ -17,7 +18,7 @@ class Cola
         Cola();
         
         // Encolar
-        void encolar(int dato);
+        void encolar(int dato, std::string nombre);
         // mostrar cola
         void mostrarCola();
         // Desencolar
@@ -28,6 +29,7 @@ class Cola
 
         // Buscar la posicion en cola
         int buscar(int dato);
+        void graficarCola();
 };
 
 #endif

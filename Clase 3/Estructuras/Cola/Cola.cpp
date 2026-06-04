@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Cola.h"
-
+#include <fstream>
 // Constructor de la clase Cola
 Cola::Cola()
 {
@@ -9,10 +9,11 @@ Cola::Cola()
 }
 
 // Funcion para encolar un elemento a la cola
-void Cola::encolar(int dato)
+void Cola::encolar(int dato, std::string nombre)
 {
     NodoCola* nuevoNodo = new NodoCola();
     nuevoNodo->dato = dato;
+    nuevoNodo->nombre = nombre;
     nuevoNodo->siguiente = nullptr;
     // Si la cola está vacia
     if (estaVacia())
@@ -35,7 +36,7 @@ void Cola::mostrarCola()
     NodoCola* actual = frente;
     while (actual != nullptr)
     {
-        std::cout << actual->dato << " ";
+        std::cout << actual->dato << " (" << actual->nombre << ") ";
         actual = actual->siguiente;
     }
     std::cout << std::endl;
@@ -75,4 +76,44 @@ int Cola::buscar(int dato)
         posicion++;
     }
     return -1; // No se encontro el elemento
+}
+
+// Graficar en graphviz la cola
+void Cola::graficarCola()
+{
+    std::ofstream archivo("cola.dot");
+    archivo << "digraph Cola {" << std::endl;
+    archivo << "rankdir=LR;" << std::endl;
+    archivo << "node [shape=record];" << std::endl;
+
+    NodoCola* actual = frente;
+    int index = 0;
+    while (actual != nullptr)
+    {
+        if (actual->siguiente != nullptr)
+        {
+            // Nodo con puntero activo
+            archivo << "node" << index 
+                    << " [label=\"{" << actual->dato 
+                    << " | " << actual->nombre 
+                    << " | <next> *}\"];" << std::endl;
+
+            archivo << "node" << index << ":next -> node" << index + 1 << ";" << std::endl;
+        }
+        else
+        {
+            // Último nodo: puntero null
+            archivo << "node" << index 
+                    << " [label=\"{" << actual->dato 
+                    << " | " << actual->nombre 
+                    << " | <next> /}\"];" << std::endl;
+        }
+
+        actual = actual->siguiente;
+        index++;
+    }
+
+    archivo << "}" << std::endl;
+    archivo.close();
+    system("dot -Tpng cola.dot -o cola.png");
 }

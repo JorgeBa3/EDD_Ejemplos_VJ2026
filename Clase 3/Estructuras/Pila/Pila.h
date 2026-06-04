@@ -27,6 +27,8 @@ class Pila
 
         // Buscar la posicion en cola
         int peek();
+
+        void graficarPila();
 };
 
 #endif

@@ -20,21 +20,36 @@ int main() {
         cout << "7. Pop" << endl;
         cout << "8. Mostrar pila" << endl;
         cout << "9. Peek" << endl;
-        cout << "10. Salir" << endl;
+        cout << "10. Graficar cola" << endl;
         cout << "Ingrese una opcion: ";
         int opcion;
         cin >> opcion;
         switch (opcion)
         {        
-            case 1:
+            case 1:{
+
+            
             cout << "Encolar" << endl; 
+            cout << "Dato: " << endl; 
             int dato;
             cin >> dato;
-            cola.encolar(dato);
+            cout << "Nombre: " << endl;
+            std::string nombre;
+            cin >> nombre;
+            try
+            {
+                cola.encolar(dato, nombre);
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+            
+            
             system("cls");
-            cout << "Dato encolado: " << dato << endl;
+            cout << "Dato encolado: " << dato << " (" << nombre << ")" << endl;
             break;
-
+        }
             case 2:
             cout << "Desencolar" << endl;
             cola.desencolar();
@@ -132,6 +147,14 @@ int main() {
             
             break;
 
+            case 10:{
+                cout << "Graficar pila" << endl;
+                pila.graficarPila();
+                cola.graficarCola();
+            }
+            
+            
+            break;
             default:
             cout << "Opcion invalida" << endl; 
         }

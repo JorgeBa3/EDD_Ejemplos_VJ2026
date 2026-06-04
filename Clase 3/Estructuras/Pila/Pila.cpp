@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Pila.h"
+#include <fstream>
 
 // Constructor de la clase Pila
 Pila::Pila()
@@ -69,4 +70,39 @@ int Pila::peek()
         return -1;
     }
     return cima->dato;
+}
+
+void Pila::graficarPila()
+{
+    std::ofstream archivo("pila.dot");
+    archivo << "digraph Pila {" << std::endl;
+    archivo << "rankdir=TB;" << std::endl;
+    archivo << "node [shape=record];" << std::endl;
+
+    NodoPila* actual = cima;
+    int index = 0;
+    while (actual != nullptr)
+    {
+        if (actual->siguiente != nullptr)
+        {
+            archivo << "node" << index
+                    << " [label=\"{" << actual->dato
+                    << " | <next> *}\"];" << std::endl;
+
+            archivo << "node" << index << ":next -> node" << index + 1 << ";" << std::endl;
+        }
+        else
+        {
+            archivo << "node" << index
+                    << " [label=\"{" << actual->dato
+                    << " | <next> /}\"];" << std::endl;
+        }
+
+        actual = actual->siguiente;
+        index++;
+    }
+
+    archivo << "}" << std::endl;
+    archivo.close();
+    system("dot -Tpng pila.dot -o pila.png");
 }

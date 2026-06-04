@@ -1,0 +1,7 @@
+digraph Cola {
+rankdir=LR;
+node [shape=record];
+node0 [label="{1 | sdaf | <next> *}"];
+node0:next -> node1;
+node1 [label="{2 | gfds | <next> /}"];
+}

@@ -1,0 +1,8 @@
+digraph Cola {
+rankdir=LR;
+node [shape=rectangle];
+Nodo2 [label="2 | ttttt | 2.5"];
+Nodo2 -> Nodo3;
+Nodo3 [label="3 | qqqq | 0.2"];
+Nodo3 -> null;
+}

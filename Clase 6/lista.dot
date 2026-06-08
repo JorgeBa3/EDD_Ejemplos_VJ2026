@@ -1,0 +1,43 @@
+digraph ListaConPilas {
+graph [ranksep=1.2, nodesep=0.6, splines=ortho, bgcolor="white"];
+node [shape=record, fontname="Helvetica", fontsize=11];
+edge [arrowsize=0.8];
+
+null_right [label="NULL", shape=plaintext];
+
+"Brasil" [label="{ Brasil | <next> * }"];
+"Argentina" [label="{ Argentina | <next> * }"];
+"Guatemala" [label="{ Guatemala | <next> * }"];
+
+{ rank=same; "Brasil"; "Argentina"; "Guatemala"; null_right; }
+
+"Brasil":next -> "Argentina";
+"Argentina":next -> "Guatemala";
+"Guatemala":next -> null_right;
+
+top_Brasil [label="TOP", shape=plaintext];
+null_Brasil [label="NULL", shape=plaintext];
+"Brasil" -> top_Brasil [style=dashed];
+top_Brasil -> Brasil_jugador_0;
+Brasil_jugador_0 [label="{#10|Pelé|Delantero| <next> *}"];
+Brasil_jugador_0:next -> Brasil_jugador_1;
+Brasil_jugador_1 [label="{#9|Neymar|Delantero| <next> *}"];
+Brasil_jugador_1:next -> null_Brasil;
+
+top_Argentina [label="TOP", shape=plaintext];
+null_Argentina [label="NULL", shape=plaintext];
+"Argentina" -> top_Argentina [style=dashed];
+top_Argentina -> Argentina_jugador_0;
+Argentina_jugador_0 [label="{#11|Di María|Delantero| <next> *}"];
+Argentina_jugador_0:next -> Argentina_jugador_1;
+Argentina_jugador_1 [label="{#10|Messi|Delantero| <next> *}"];
+Argentina_jugador_1:next -> null_Argentina;
+
+top_Guatemala [label="TOP", shape=plaintext];
+null_Guatemala [label="NULL", shape=plaintext];
+"Guatemala" -> top_Guatemala [style=dashed];
+top_Guatemala -> Guatemala_jugador_0;
+Guatemala_jugador_0 [label="{#10|Roderio|Delantero| <next> *}"];
+Guatemala_jugador_0:next -> null_Guatemala;
+
+}

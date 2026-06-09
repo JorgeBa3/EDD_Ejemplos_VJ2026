@@ -1,0 +1,14 @@
+digraph Cola {
+rankdir=LR;
+node [shape=rectangle];
+Nodo1 [label="1 | Juan | 1.75"];
+Nodo1 -> Nodo2;
+Nodo2 [label="2 | Maria | 1.65"];
+Nodo2 -> Nodo1;
+Nodo1 [label="1 | Juan | 1.75"];
+Nodo1 -> Nodo2;
+Nodo2 [label="2 | Ana | 1.65"];
+Nodo2 -> Nodo3;
+Nodo3 [label="3 | Carlos | 1.8"];
+Nodo3 -> null;
+}

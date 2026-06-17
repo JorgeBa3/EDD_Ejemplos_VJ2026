@@ -1,0 +1,51 @@
+digraph BST {
+    node [shape=circle, style=filled, fillcolor=white, fontname="Helvetica"];
+    edge [arrowsize=0.7];
+    graph [nodesep=0.6, ranksep=0.7];
+    5 [ordering="out"];
+    5 -> 3;
+    5 -> 9;
+    {rank=same; 3; 9;}
+    3 [ordering="out"];
+    9 [ordering="out"];
+    9 -> 7;
+    9 -> 12;
+    {rank=same; 7; 12;}
+    7 [ordering="out"];
+    7 -> 6;
+    7 -> 8;
+    {rank=same; 6; 8;}
+    6 [ordering="out"];
+    8 [ordering="out"];
+    12 [ordering="out"];
+    inv_izq_12 [style=invis,width=0.1,label=""];
+    12 -> inv_izq_12 [style=invis];
+    12 -> 13;
+    {rank=same; inv_izq_12; 13;}
+    13 [ordering="out"];
+    inv_izq_13 [style=invis,width=0.1,label=""];
+    13 -> inv_izq_13 [style=invis];
+    13 -> 14;
+    {rank=same; inv_izq_13; 14;}
+    14 [ordering="out"];
+    inv_izq_14 [style=invis,width=0.1,label=""];
+    14 -> inv_izq_14 [style=invis];
+    14 -> 15;
+    {rank=same; inv_izq_14; 15;}
+    15 [ordering="out"];
+    inv_izq_15 [style=invis,width=0.1,label=""];
+    15 -> inv_izq_15 [style=invis];
+    15 -> 16;
+    {rank=same; inv_izq_15; 16;}
+    16 [ordering="out"];
+    inv_izq_16 [style=invis,width=0.1,label=""];
+    16 -> inv_izq_16 [style=invis];
+    16 -> 17;
+    {rank=same; inv_izq_16; 17;}
+    17 [ordering="out"];
+    inv_izq_17 [style=invis,width=0.1,label=""];
+    17 -> inv_izq_17 [style=invis];
+    17 -> 18;
+    {rank=same; inv_izq_17; 18;}
+    18 [ordering="out"];
+}

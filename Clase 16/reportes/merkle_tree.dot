@@ -1,0 +1,30 @@
+digraph ArbolMerkle {
+    rankdir=BT;
+    node [fontname="Helvetica", fontsize=10];
+    edge [color="#555555"];
+    labelloc="t";
+    label="Arbol de Merkle - EDD CoffeeTrack\nCertificados cubiertos: 3 | Altura: 3 niveles";
+    fontname="Helvetica";
+    fontsize=14;
+
+    { rank=same;
+        n0_0 [label="Hoja 0\n16ff610a...", shape=ellipse, style=filled, fillcolor="#C8E6C9"];
+        n0_1 [label="Hoja 1\n54815a48...", shape=ellipse, style=filled, fillcolor="#C8E6C9"];
+        n0_2 [label="Hoja 2\n688475eb...", shape=ellipse, style=filled, fillcolor="#C8E6C9"];
+        n0_3 [label="Hoja 3 (copia)\n688475eb...", shape=ellipse, style="filled,dashed", fillcolor="#FFE0B2"];
+    }
+    { rank=same;
+        n1_0 [label="Nivel 1\na8f3a4e5...", shape=ellipse, style=filled, fillcolor="#E0E0E0"];
+        n1_1 [label="Nivel 1\n2acbcc18...", shape=ellipse, style=filled, fillcolor="#E0E0E0"];
+    }
+    { rank=same;
+        n2_0 [label="RAIZ\ne7ff9dc7...", shape=box, style=filled, fillcolor="#1565C0", fontcolor=white, fontsize=11];
+    }
+
+    n0_0 -> n1_0;
+    n0_1 -> n1_0;
+    n0_2 -> n1_1;
+    n0_3 -> n1_1;
+    n1_0 -> n2_0;
+    n1_1 -> n2_0;
+}

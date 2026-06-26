@@ -1,0 +1,23 @@
+graph MiGrafo {
+    graph [bgcolor="#ffffff" pad="0.5"]
+    node [shape=circle style=filled fillcolor="#EEEDFE" color="#534AB7" fontcolor="#3C3489" fontsize=16 penwidth=2]
+    edge [color="#7F77DD" penwidth=2]
+
+    0;
+    1;
+    2;
+    3 [fillcolor="#FAC775" fontcolor="#412402" color="#BA7517"]
+    4 [fillcolor="#1D9E75" fontcolor="#ffffff" color="#0F6E56"]
+    5 [fillcolor="#FAC775" fontcolor="#412402" color="#BA7517"]
+    6 [fillcolor="#FAC775" fontcolor="#412402" color="#BA7517"]
+    7 [fillcolor="#D85A30" fontcolor="#ffffff" color="#993C1D"]
+
+    0 -- 1
+    1 -- 2
+    2 -- 3
+    3 -- 4 [color="#D85A30" penwidth=3.5]
+    1 -- 5
+    5 -- 6 [color="#D85A30" penwidth=3.5]
+    6 -- 7 [color="#D85A30" penwidth=3.5]
+    3 -- 5 [color="#D85A30" penwidth=3.5]
+}
